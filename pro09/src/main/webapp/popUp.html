@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+
+	<script type="text/javascript">
+		/**
+		 * 팝업 비활성화 메서드
+		 */
+		function setPopUpStart(obj)
+		{
+			// 체크될 경우
+			if (obj.checked === true)
+			{
+				const expireDate = new Date();
+				expireDate.setMonth(expireDate.getMonth() + 1);
+
+				document.cookie = 'notShowPop=true; path=/; expires=' + expireDate.toGMTString();
+
+				window.close();
+			}
+		}
+	</script>
+</head>
+
+<body>
+	알림 팝업창입니다.
+	<br /><br /><br /><br /><br /><br /><br />
+
+	<form>
+		<input type="checkbox" onclick="setPopUpStart(this)" /> 오늘 더 이상 팝업창 띄우지 않기
+	</form>
+</body>
+
+</html>

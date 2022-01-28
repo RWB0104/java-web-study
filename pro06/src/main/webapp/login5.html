@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+
+	<title>로그인 창</title>
+
+	<script type="text/javascript">
+		/**
+		 * 로그인 메서드
+		 */
+		function fn_validate()
+		{
+			const frmLogin = document.frmLogin;
+
+			const user_id = frmLogin.user_id.value;
+			const user_pw = frmLogin.user_pw.value;
+
+			// 입력이 유효하지 않을 경우
+			if ((user_id.length === 0 || user_id === "") || (user_pw.length === 0 || user_pw === ""))
+			{
+				alert('아이디와 비밀번호는 필수입니다.')
+			}
+
+			// 입력이 유효할 경우
+			else
+			{
+				frmLogin.method = 'POST';
+				frmLogin.action = 'login5';
+				frmLogin.submit();
+			}
+		}
+	</script>
+</head>
+
+<body>
+	<form name="frmLogin" method="GET" action="login5" enctype="UTF-8">
+		아이디: <input type="text" name="user_id" /><br />
+		비밀번호: <input type="password" name="user_pw" /><br />
+
+		<input type="button" onclick="fn_validate()" value="로그인" />
+		<input type="reset" value="다시 입력" />
+
+		<input type="hidden" name="user_address" value="서울시 성북구" />
+	</form>
+</body>
+
+</html>
